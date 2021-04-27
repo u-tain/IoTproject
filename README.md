@@ -18,7 +18,7 @@ Here we solve the problem of creating a face recognition system and sending noti
 4. Upload file
    ```
    python3 realization.py
-   ```
+5. To the exit press: ```ctrl+C``` or q
 ## If you want to test your camera:
 ```
 gst-launch-1.0 nvarguscamerasrc sensor_id=0 ! \
