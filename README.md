@@ -19,7 +19,7 @@ Here we solve the problem of creating a face recognition system and sending noti
    ```
    python3 realization.py
    ```
-## if you want to test your camera:
+## If you want to test your camera:
 ```
 gst-launch-1.0 nvarguscamerasrc sensor_id=0 ! \
    'video/x-raw(memory:NVMM),width=3280, height=2464, framerate=21/1, format=NV12' ! \
