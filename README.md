@@ -13,6 +13,7 @@ Here we solve the problem of creating a face recognition system and sending noti
    ```
    sudo apt install python3-numpy
    sudo apt install libcanberra-gtk-module
+   sudo apt install python3-opencv
    sudo pip3 -v install Cython face_recognition
    ```
 4. Upload file
