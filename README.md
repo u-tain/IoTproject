@@ -7,7 +7,7 @@ Here we solve the problem of creating a face recognition system and sending noti
    ```
 2. Open repository 
    ```
-   cd IotTproject
+   cd IoTproject
    ```
 3. Upload libs
    ```
