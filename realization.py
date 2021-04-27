@@ -62,6 +62,7 @@ def face_detect():
             bottom *= 2
             left *= 2
             cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
+      cv2.imshow('Video', frame)
   video_capture.release()
   cv2.destroyAllWindows()
 
