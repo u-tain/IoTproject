@@ -19,7 +19,7 @@ def window(capture_width=3280, capture_height=2464, display_width=820, display_h
 
 def face_detect():
   video_capture = cv2.VideoCapture(window(), cv2.CAP_GSTREAMER)
-  tata_image = face_recognition.load_image_file("tata.jpeg")
+  tata_image = face_recognition.load_image_file("tata.jpg")
   tata_face_encoding = face_recognition.face_encodings(tata_image)[0]
   known_face_encodings = [
       tata_face_encoding
