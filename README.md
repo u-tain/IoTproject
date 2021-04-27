@@ -1,4 +1,4 @@
-# IotTproject
+# IoTproject
 Here we solve the problem of creating a face recognition system and sending notifications to the user.
 ## Steps to implement face recognition using Jetson Nano:
 1. Clone github
