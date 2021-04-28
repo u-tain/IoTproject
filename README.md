@@ -3,7 +3,7 @@ Here we solve the problem of creating a face recognition system and sending noti
 ## Steps to implement face recognition using Jetson Nano:
 1. Clone github
    ```
-   git clone https://github.com/u-tain/IotTproject.git
+   git clone https://github.com/u-tain/IoTproject.git
    ```
 2. Open repository 
    ```
