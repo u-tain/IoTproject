@@ -18,6 +18,8 @@ Here we solve the problem of creating a face recognition system and sending noti
    sudo apt-get -y install python3-pip
    pip3 -v install Cython face_recognition
    pip3 install face_recognition
+   python3 -m pip install --upgrade pip
+   python3 -m pip install --upgrade Pillow
    ```
 4. Upload file
    ```
