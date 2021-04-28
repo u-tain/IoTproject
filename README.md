@@ -11,6 +11,7 @@ Here we solve the problem of creating a face recognition system and sending noti
    ```
 3. Upload libs
    ```
+   sudo apt-get update
    sudo apt install python3-numpy
    sudo apt install libcanberra-gtk-module
    sudo apt install python3-opencv
