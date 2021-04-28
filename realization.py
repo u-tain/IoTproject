@@ -2,7 +2,7 @@ import face_recognition
 import cv2
 import numpy as np
 from PIL import Image
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 #%matplotlib inline
 def window(capture_width=3280, capture_height=2464, display_width=820, display_height=616, framerate=21, flip_method=0,):
   return (
