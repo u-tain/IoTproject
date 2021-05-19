@@ -25,10 +25,14 @@ Here we solve the problem of creating a face recognition system and sending noti
    ```
    python3 realization.py
 5. To the exit press: ```ctrl+C``` or q
-## If you want to test your camera:
+## If you want to test your CSI-camera:
 ```
 gst-launch-1.0 nvarguscamerasrc sensor_id=0 ! \
    'video/x-raw(memory:NVMM),width=3280, height=2464, framerate=21/1, format=NV12' ! \
    nvvidconv flip-method=0 ! 'video/x-raw,width=960, height=720' ! \
    nvvidconv ! nvegltransform ! nveglglessink -e
+```
+## If you want to test your USB-camera:
+```
+nvgstcapture-1.0 --camsrc=0 --cap-dev-node=/dev/video1 node
 ```
