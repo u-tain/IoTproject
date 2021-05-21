@@ -40,6 +40,7 @@ $ video-viewer --input-width=640--input-height=480--input-codec=YUYV /dev/video0
 ```
 ## our usb camera info:
 ```
+v4l2-ctl --all
 Driver Info (not using libv4l2):
 	Driver name   : uvcvideo
 	Card type     : USB2.0 PC CAMERA
@@ -85,4 +86,38 @@ Streaming Parameters Video Capture:
                            gain 0x00980913 (int)    : min=0 max=65535 step=1 default=16 value=16
            power_line_frequency 0x00980918 (menu)   : min=0 max=2 default=1 value=1
                       sharpness 0x0098091b (int)    : min=0 max=255 step=1 default=1 value=1
+```
+## Camera formats:
+```
+ v4l2-ctl —device=/dev/video0 —list-formats-ext
+ioctl: VIDIOC_ENUM_FMT
+Index : 0
+Type : Video Capture
+Pixel Format: 'YUYV'
+Name : YUYV 4:2:2
+Size: Discrete 640x480
+Interval: Discrete 0.033s (30.000 fps)
+Interval: Discrete 0.067s (15.000 fps)
+Interval: Discrete 0.100s (10.000 fps)
+Interval: Discrete 0.200s (5.000 fps)
+Size: Discrete 160x120
+Interval: Discrete 0.033s (30.000 fps)
+Interval: Discrete 0.067s (15.000 fps)
+Interval: Discrete 0.100s (10.000 fps)
+Interval: Discrete 0.200s (5.000 fps)
+Size: Discrete 176x144
+Interval: Discrete 0.033s (30.000 fps)
+Interval: Discrete 0.067s (15.000 fps)
+Interval: Discrete 0.100s (10.000 fps)
+Interval: Discrete 0.200s (5.000 fps)
+Size: Discrete 320x240
+Interval: Discrete 0.033s (30.000 fps)
+Interval: Discrete 0.067s (15.000 fps)
+Interval: Discrete 0.100s (10.000 fps)
+Interval: Discrete 0.200s (5.000 fps)
+Size: Discrete 352x288
+Interval: Discrete 0.033s (30.000 fps)
+Interval: Discrete 0.067s (15.000 fps)
+Interval: Discrete 0.100s (10.000 fps)
+Interval: Discrete 0.200s (5.000 fps)
 ```
