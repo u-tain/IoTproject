@@ -35,4 +35,6 @@ gst-launch-1.0 nvarguscamerasrc sensor_id=0 ! \
 ## If you want to test your USB-camera:
 ```
 nvgstcapture-1.0 --camsrc=0 --cap-dev-node=/dev/video1 node
+$ video-viewer --input-width=640--input-height=480--input-codec=YUYV /dev/video0
+
 ```
