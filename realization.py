@@ -2,23 +2,15 @@ import face_recognition
 import cv2
 import numpy as np
 from PIL import Image
-#import matplotlib.pyplot as plt
-#%matplotlib inline
-def window(capture_width=3280, capture_height=2464, display_width=820, display_height=616, framerate=21, flip_method=0,):
-  return (
-        "nvarguscamerasrc ! "
-        "video/x-raw(memory:NVMM), "
-        "width=(int)%d, height=(int)%d, "
-        "format=(string)NV12, framerate=(fraction)%d/1 ! "
-        "nvvidconv flip-method=%d ! "
-        "video/x-raw, width=(int)%d, height=(int)%d, format=(string)BGRx ! "
-        "videoconvert ! "
-        "video/x-raw, format=(string)BGR ! appsink"
-         % (capture_width, capture_height, framerate, flip_method, display_width, display_height)
-        )
+
 
 def face_detect():
-  video_capture = cv2.VideoCapture(window(), cv2.CAP_GSTREAMER)
+  video_capture = cv2.VideoCapture(0, cv2.CAP_V4L2)
+  video_capture.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+  video_capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+  video_capture.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*'MJPG'))
+  video_capture.set(cv2.CAP_PROP_FPS, 30)
+  
   tata_image = face_recognition.load_image_file("tata.jpg")
   tata_face_encoding = face_recognition.face_encodings(tata_image)[0]
   known_face_encodings = [
@@ -34,7 +26,7 @@ def face_detect():
     ret, frame = video_capture.read() 
     if not ret:
       break
-    small_frame = cv2.resize(frame, (0, 0), fx=0.5, fy=0.5)
+    small_frame = cv2.resize(frame, (0, 0), fx=1, fy=1)
     rgb_small_frame = small_frame[:, :, ::-1]   
     image = rgb_small_frame
     face_locations = face_recognition.face_locations(image)
