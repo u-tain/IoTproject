@@ -5,6 +5,8 @@ from PIL import Image
 
 
 def face_detect():
+  url = 'http://6fda4688bc81.ngrok.io'
+  
   video_capture = cv2.VideoCapture(0, cv2.CAP_V4L2)
   video_capture.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
   video_capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
@@ -13,16 +15,21 @@ def face_detect():
   
   tata_image = face_recognition.load_image_file("tata.jpg")
   tata_face_encoding = face_recognition.face_encodings(tata_image)[0]
+  vlada_image = face_recognition.load_image_file("vlada.jpg")
+  vlada_face_encoding = face_recognition.face_encodings(vlada_image)[0]
+  
   known_face_encodings = [
-      tata_face_encoding
+      tata_face_encoding,
+      vlada_face_encoding
   ]
   known_face_names = [
-      "Tatyana"
+      "Tatyana",
+      "Vladislava"
   ]
   face_locations = []
   face_encodings = []
   face_names = []
-  if video_capture.isOpened():
+  While video_capture.isOpened():
     ret, frame = video_capture.read() 
     if not ret:
       break
@@ -48,13 +55,13 @@ def face_detect():
           face_names.append(top)
           face_names = list(set(face_names))
           pil_image.save(f'{top}.jpg')
-      for (top, right, bottom, left) in face_locations:
-            top *= 2
-            right *= 2
-            bottom *= 2
-            left *= 2
-            cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
-      cv2.imshow('Video', frame)
+          data={}
+          with open(f'/home/iot/IoTproject/{top}.jpg', mode='rb') as file:
+               img = file.read()
+          data['img'] =  base64.b64encode(img)
+          rs = requests.post(url, files=data)  
+          path = os.path.join(os.path.abspath(os.path.dirname(__file__)), f'{top}.jpg')
+          os.remove(path)   
   video_capture.release()
   cv2.destroyAllWindows()
 
