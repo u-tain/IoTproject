@@ -2,6 +2,10 @@ import face_recognition
 import cv2
 import numpy as np
 from PIL import Image
+import io 
+import requests
+import base64
+import os
 
 
 def face_detect():
